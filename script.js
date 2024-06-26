@@ -1,14 +1,13 @@
-const container=document.queryselector("div");
-const dimension=16
+const size=10;
+const container=document.querySelector("div");
+container.style.display="flex";
+container.style.flexWrap="wrap";
 
-function createTable(){
-    for (let x = 0; x < 16; x++) {
-        let row=document.createElement("div");
-    
-        for (let y = 0; x < 16; y++) {
-            row.appendChild(document.createElement("div"));
-        }
-        container.appendChild("row");
+function createGrid(size){
+    for(let x;x<size;x++){
+        const div=document.createElement("div");
+        div.style.width=100/size+'%';
+        container.appendChild(div);
     }
 }
 
