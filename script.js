@@ -1,5 +1,5 @@
 const size=10;
-const container=document.getElementById("#kela");
+const container=document.getElementById("kela");
 container.style.display="flex";
 container.style.flexWrap="wrap";
 
