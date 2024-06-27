@@ -1,4 +1,4 @@
-const size=10;
+let size=10;
 const black="black";
 
 const body=document.querySelector("body");
@@ -16,18 +16,24 @@ buttonContainer.style.gap="50px";
 
 const btn1=document.createElement("button");
 btn1.innerText="Size";
+btn1.classList.add("button");
 buttonContainer.appendChild(btn1);
 
 const btn2=document.createElement("button");
 btn2.innerText="Random";
+btn1.classList.add("button");
 buttonContainer.appendChild(btn2);
 
 const btn3=document.createElement("button");
 btn3.innerText="Black";
+btn1.classList.add("button");
 buttonContainer.appendChild(btn3);
 
 body.appendChild(buttonContainer);
 
+
+const buttoncss=document.getElementsByClassName("button");
+// buttoncss.style.fontFamily="Impact,Charcoal,sans-serif";
 
 const container=document.createElement("div");
 body.appendChild(container);
@@ -94,6 +100,14 @@ function createGridRandom(size){
         )
     }
 }
+btn1.addEventListener("click",
+    ()=>{
+        container.innerHTML="";
+        let input=prompt("Enter the size of the Egde of Grid");
+        size=input;
+    }
+)
+
 
 btn2.addEventListener("click",
     ()=>{
