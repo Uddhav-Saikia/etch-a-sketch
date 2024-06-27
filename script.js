@@ -1,4 +1,5 @@
 const size=10;
+const black="black";
 const container=document.querySelector("div");
 const body=document.querySelector("body");
 body.style.display="flex";
@@ -14,7 +15,7 @@ container.style.height="600px";
 container.style.width="600px";
 
 
-function createGrid(size){
+function createGrid(size,colour){
     
     for(let x=0; x<size*size; x++){
         const div=document.createElement('div');
@@ -23,10 +24,10 @@ function createGrid(size){
         div.style.height=100/size+'%';
         container.appendChild(div);
         div.style.opacity=0;
+        div.style.backgroundColor=colour;
 
         div.addEventListener("mouseenter",
             ()=>{
-                div.style.backgroundColor=randomColor;
                 if(div.style.opacity<1){
                     div.style.opacity=parseFloat(div.style.opacity)+0.15;
                 }
@@ -35,19 +36,19 @@ function createGrid(size){
     }
 }
 
-function randomColor(){
-    r=Math.floor(Math.random()*255);
-    g=Math.floor(Math.random()*255);
-    b=Math.floor(Math.random()*255);
- 
-    const colour="rgb(" + toString(r) + toString(g) + toString(b) + ")";
+function getRandomColor(){
+    let letter="0123456789ABCDEF";
+    let colour="#";
+    for(let x=0; x<6; x++){
+        colour+=letter[Math.floor(Math.random()*16)];
+    }
     return colour;
 }
 
 
 
 
-createGrid(10);
+createGrid(size,getRandomColor);
 
 
 
