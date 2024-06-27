@@ -1,41 +1,46 @@
 let size=10;
 const black="black";
 
-const body=document.querySelector("body");
+const body=document.querySelector("body");//body selector var
 
-const ht=document.createElement("h1");
+const ht=document.createElement("h1");//heading
 ht.innerText="Etch-a-Sketch";
 ht.style.textAlign="center";
 body.appendChild(ht);
 
-const buttonContainer=document.createElement("div");
+
+
+
+const buttonContainer=document.createElement("div");//container for buttons
 buttonContainer.style.display="flex";
 buttonContainer.style.justifyContent="center";
 buttonContainer.style.gap="50px";
 
 
-const btn1=document.createElement("button");
+
+
+const btn1=document.createElement("button");//button1
 btn1.innerText="Size";
 btn1.classList.add("button");
 buttonContainer.appendChild(btn1);
 
-const btn2=document.createElement("button");
+const btn2=document.createElement("button");//button2
 btn2.innerText="Random";
-btn1.classList.add("button");
+btn2.classList.add("button");
 buttonContainer.appendChild(btn2);
 
-const btn3=document.createElement("button");
+const btn3=document.createElement("button");//button3
 btn3.innerText="Black";
-btn1.classList.add("button");
+btn3.classList.add("button");
+
 buttonContainer.appendChild(btn3);
+body.appendChild(buttonContainer);//append into body
 
-body.appendChild(buttonContainer);
 
 
-const buttoncss=document.getElementsByClassName("button");
-// buttoncss.style.fontFamily="Impact,Charcoal,sans-serif";
 
-const container=document.createElement("div");
+
+const container=document.createElement("div");//canvas container section
 body.appendChild(container);
 container.style.display="flex";
 container.style.flexWrap="wrap";
@@ -48,6 +53,8 @@ container.style.marginRight="auto";
 container.style.marginTop="20px";
 
 
+
+
 function getRandomColor(){
     let letter="0123456789ABCDEF";
     let colour="#";
@@ -56,6 +63,7 @@ function getRandomColor(){
     }
     return colour;
 }
+
 
 
 function createGridBlack(size){
@@ -80,6 +88,7 @@ function createGridBlack(size){
 }
 
 
+
 function createGridRandom(size){
     
     for(let x=0; x<size*size; x++){
@@ -100,13 +109,19 @@ function createGridRandom(size){
         )
     }
 }
+
+
+
 btn1.addEventListener("click",
     ()=>{
         container.innerHTML="";
         let input=prompt("Enter the size of the Egde of Grid");
-        size=input;
+        if(input<101){
+            size=input;
+        }
     }
 )
+
 
 
 btn2.addEventListener("click",
@@ -115,6 +130,8 @@ btn2.addEventListener("click",
         createGridRandom(size);
     }
 )
+
+
 
 btn3.addEventListener("click",
     ()=>{
