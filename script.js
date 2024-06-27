@@ -4,8 +4,30 @@ const black="black";
 const body=document.querySelector("body");
 
 const ht=document.createElement("h1");
-ht.innerText="Hey";
+ht.innerText="Etch-a-Sketch";
+ht.style.textAlign="center";
 body.appendChild(ht);
+
+const buttonContainer=document.createElement("div");
+buttonContainer.style.display="flex";
+buttonContainer.style.justifyContent="center";
+buttonContainer.style.gap="50px";
+
+
+const btn1=document.createElement("button");
+btn1.innerText="Size";
+buttonContainer.appendChild(btn1);
+
+const btn2=document.createElement("button");
+btn2.innerText="Random";
+buttonContainer.appendChild(btn2);
+
+const btn3=document.createElement("button");
+btn3.innerText="Black";
+buttonContainer.appendChild(btn3);
+
+body.appendChild(buttonContainer);
+
 
 const container=document.createElement("div");
 body.appendChild(container);
@@ -17,9 +39,7 @@ container.style.height="600px";
 container.style.width="600px";
 container.style.marginLeft="auto";
 container.style.marginRight="auto";
-
-
-
+container.style.marginTop="20px";
 
 
 function getRandomColor(){
@@ -75,8 +95,21 @@ function createGridRandom(size){
     }
 }
 
+btn2.addEventListener("click",
+    ()=>{
+        container.innerHTML="";
+        createGridRandom(size);
+    }
+)
 
-createGridRandom(size);
+btn3.addEventListener("click",
+    ()=>{
+        container.innerHTML="";
+        createGridBlack(size);
+    }
+)
+
+
 
 
 
