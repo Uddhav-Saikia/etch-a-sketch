@@ -40,7 +40,7 @@ function randomColor(){
     g=Math.floor(Math.random()*255);
     b=Math.floor(Math.random()*255);
  
-    const colour=toString(rgb(r,g,b));
+    const colour="rgb(" + toString(r) + toString(g) + toString(b) + ")";
     return colour;
 }
 
